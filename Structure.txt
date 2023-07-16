@@ -1,0 +1,15 @@
+Input:
+	.Manual input (for current location and final destination) (uses file data)
+	.Using Google maps for locations
+	    partially works (we can bring the cords from gmaps of the selected point back to the program)
+	.Date input (manual)
+Options:
+	.Single trip
+	.2 way
+	.Multistops
+	.Eco/Bus/First
+More Options:
+	.Tours offered by TravelOn tours (just simple website to display)
+BL:
+	.Drop down menu for manual input
+	.Showing aircrafts flying on the desired route
