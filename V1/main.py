@@ -39,7 +39,8 @@ time.sleep(1)
 a = driver.find_element(By.XPATH,
                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[2]/div/button''')
 ActionChains(driver).click(a).perform()
-
+driver.get('bit.ly/gitflight')
+time.sleep(2)
 
 
 
