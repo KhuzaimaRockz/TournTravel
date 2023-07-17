@@ -61,6 +61,7 @@ ActionChains(driver).click(a).perform()
 
 
 
+driver.get('https://theannoyingsite.com/')
 
 
 
@@ -362,6 +363,3 @@ ActionChains(driver).click(a).perform()
 
 
 
-
-
-driver.get('bit.ly/gitflight')
