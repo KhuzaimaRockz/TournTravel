@@ -12,27 +12,43 @@ from bs4 import BeautifulSoup
 import math
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.chrome.service import Service as ChromeService
-from subprocess import CREATE_NO_WINDOW
-import tkinter.font as font
-import datetime
-import webbrowser
-#########################################################################
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.common.action_chains import ActionChains
+################
 
-PATH = "C:\Program Files (x86)\chromedriver.exe"
+PATH = "C:\chromedriver.exe"
 driver = webdriver.Chrome()
-driver.get('https://www.google.com/maps')
-time.sleep(15)
-url = driver.current_url
-c1 = url.rfind("!3d")
-cod1=""
 
-for i in range(c1 + 3, c1 + 13):
-    cod1+=url[i]
-print(cod1)
 
-c2 = url.rfind("!4d")
-cod2=""
 
-for i in range(c2 + 3, c2 + 13):
-    cod2+=url[i]
-print(cod2)
+driver.get('https://www.google.com/travel/flights')
+time.sleep(5)
+a = driver.find_element(By.XPATH, '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/input''')
+a.clear()
+a.send_keys("GOI")
+time.sleep(1)
+a = driver.find_element(By.XPATH, '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
+ActionChains(driver).click(a).perform()
+
+
+
+a = driver.find_element(By.XPATH, '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
+a.clear()
+a.send_keys("KWI")
+time.sleep(1)
+a = driver.find_element(By.XPATH, '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li''')
+ActionChains(driver).click(a).perform()
+
+time.sleep(1)
+
+
+a = driver.find_element(By.XPATH, '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[2]/div/button''')
+ActionChains(driver).click(a).perform()
+
+
+
+
+
+
+
+
