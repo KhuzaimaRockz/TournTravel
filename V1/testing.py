@@ -49,6 +49,8 @@ while True:
     else:
         break
 
+usr_from = input('Enter -From- location : ')
+usr_dest = input('Enter -Destination- : ')
 
 
 flag_1=True
@@ -93,7 +95,7 @@ if flag_1==True:
             # From city
             a = driver.find_element(By.XPATH, "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/input")
             a.clear()
-            a.send_keys("GOI")
+            a.send_keys(usr_from)
             time.sleep(1)
             a = driver.find_element(By.XPATH, "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]")
             ActionChains(driver).click(a).perform()
@@ -101,7 +103,7 @@ if flag_1==True:
             # To city
             a = driver.find_element(By.XPATH,"/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input")
             a.clear()
-            a.send_keys("KWI")
+            a.send_keys(usr_dest)
             time.sleep(1)
             a = driver.find_element(By.XPATH,"/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]")
             ActionChains(driver).click(a).perform()
@@ -127,7 +129,7 @@ if flag_1==True:
             a = driver.find_element(By.XPATH,
                                 '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/input''')
             a.clear()
-            a.send_keys("GOI")
+            a.send_keys(usr_from)
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                 '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
@@ -138,7 +140,7 @@ if flag_1==True:
             a = driver.find_element(By.XPATH,
                                 '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
             a.clear()
-            a.send_keys("KWI")
+            a.send_keys(usr_dest)
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
@@ -176,7 +178,7 @@ if flag_1==True:
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div[1]/div/div/input''')
             a.clear()
-            a.send_keys("GOI")
+            a.send_keys(usr_from)
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li[1]''')
@@ -187,7 +189,7 @@ if flag_1==True:
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div/input''')
             a.clear()
-            a.send_keys("GOI")
+            a.send_keys(usr_from)
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li''')
@@ -201,7 +203,7 @@ if flag_1==True:
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
             a.clear()
-            a.send_keys("GOI")
+            a.send_keys(usr_from)
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li''')
