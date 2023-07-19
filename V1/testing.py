@@ -51,7 +51,7 @@ while True:
     else:
         break
 
-if trip in [1,2]:
+if trip in [1, 2]:
     usr_from = input('Enter -From- location : ')
     usr_dest = input('Enter -Destination- : ')
 if trip == 3:
@@ -81,7 +81,7 @@ if trip > 3:
     print("wrong input, please input the correct option number")
     flag_1 = False
 
-if flag_1 == True:
+if flag_1:
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]")
     time.sleep(0.5)
@@ -197,10 +197,9 @@ if flag_1 == True:
             time.sleep(1)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/button''')
-            for i in range (flights-2):
+            for i in range(flights - 2):
                 ActionChains(driver).click(a).perform()
                 time.sleep(1)
-
 
             # From City
             a = driver.find_element(By.XPATH,
