@@ -1,0 +1,4 @@
+101:'Invalid input'
+102:'More than 9 people were entered'
+103:'There were more infant on lap than adults'
+104:'The infant to adult ratio was not met'
