@@ -7,6 +7,7 @@ from selenium.webdriver.common.keys import Keys
 
 ##############################################################
 PATH = "C:\chromedriver.exe"
+x = 2
 
 print("1. One Way\n2. Round Trip\n3. Multi City")
 trip = int(input("select the trip option: "))
@@ -93,7 +94,7 @@ options.add_experimental_option("detach", True)
 driver = webdriver.Chrome(options=options)
 
 driver.get('https://www.google.com/travel/flights')
-time.sleep(2)
+time.sleep(x)
 
 if trip > 3:
     print("wrong input, please input the correct option number")
@@ -102,23 +103,23 @@ if trip > 3:
 if flag_1:
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]")
-    time.sleep(0.5)
+    time.sleep(x)
     ActionChains(driver).click(a).perform()
 
     if trip == 1:  # One Way
         b = driver.find_element(By.XPATH,
                                 "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[2]")
-        time.sleep(0.5)
+        time.sleep(x)
         ActionChains(driver).click(b).perform()
     elif trip == 2:  # Round trip
         c = driver.find_element(By.XPATH,
                                 "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[1]")
-        time.sleep(0.5)
+        time.sleep(x)
         ActionChains(driver).click(c).perform()
     elif trip == 3:  # Multi City
         d = driver.find_element(By.XPATH,
                                 "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[3]")
-        time.sleep(0.5)
+        time.sleep(x)
         ActionChains(driver).click(d).perform()
 
     if flag_1:
@@ -128,7 +129,7 @@ if flag_1:
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/input")
             a.clear()
             a.send_keys(usr_from)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]")
             ActionChains(driver).click(a).perform()
@@ -138,11 +139,11 @@ if flag_1:
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input")
             a.clear()
             a.send_keys(usr_dest)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]")
             ActionChains(driver).click(a).perform()
-            time.sleep(1)
+            time.sleep(x)
 
             # Date
             a = driver.find_element(By.XPATH,
@@ -150,16 +151,11 @@ if flag_1:
             ActionChains(driver).click(a).perform()
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/input")
-            time.sleep(0.5)
+            time.sleep(x)
             a.send_keys(Keys.BACKSPACE)
             a.send_keys(date_from)
-            time.sleep(0.5)
-
-            # Date done button
-            a = driver.find_element(By.XPATH,
-                                    "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div[3]/div/button")
-            ActionChains(driver).click(a).perform()
-            time.sleep(0.5)
+            a.send_keys(Keys.ENTER)
+            time.sleep(x)
 
 
 
@@ -168,7 +164,7 @@ if flag_1:
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[1]/div/div/div[1]/div/div/input''')
             a.clear()
             a.send_keys(usr_from)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
             ActionChains(driver).click(a).perform()
@@ -177,7 +173,7 @@ if flag_1:
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
             a.clear()
             a.send_keys(usr_dest)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
             ActionChains(driver).click(a).perform()
@@ -188,59 +184,53 @@ if flag_1:
             ActionChains(driver).click(a).perform()
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/input")
-            time.sleep(0.5)
+            time.sleep(x)
             a.send_keys(Keys.BACKSPACE)
             a.send_keys(date_from)
-            time.sleep(0.5)
+            time.sleep(x)
 
             # Date To
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[2]/div/input")
-            time.sleep(0.2)
+            time.sleep(x)
             for i in range(11):
                 a.send_keys(Keys.BACKSPACE)
             a.send_keys(date_to)
-            time.sleep(0.5)
-
-            # Date done button
-            a = driver.find_element(By.XPATH,
-                                    "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div[3]/div/button")
-            ActionChains(driver).click(a).perform()
-            time.sleep(0.5)
-
+            a.send_keys(Keys.ENTER)
+            time.sleep(x)
 
 
         elif trip == 3:
             # Add Flight
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/button''')
             for i in range(flights - 2):
                 ActionChains(driver).click(a).perform()
-                time.sleep(1)
+                time.sleep(x)
 
             # From City
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div[1]/div/div/input''')
             a.clear()
             a.send_keys(usr_from)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li[1]''')
             ActionChains(driver).click(a).perform()
 
-            time.sleep(1)
+            time.sleep(x)
 
             # To City 1
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div/input''')
             a.clear()
             a.send_keys(usr_dest_1)
-            time.sleep(1)
+            time.sleep(x)
             a = driver.find_element(By.XPATH,
                                     '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li''')
             ActionChains(driver).click(a).perform()
-            time.sleep(0.5)
+            time.sleep(x)
 
             # Date 1
             a = driver.find_element(By.XPATH,
@@ -248,16 +238,16 @@ if flag_1:
             ActionChains(driver).click(a).perform()
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            time.sleep(0.5)
+            time.sleep(x)
             a.send_keys(Keys.BACKSPACE)
             a.send_keys(date_from)
-            time.sleep(0.5)
+            time.sleep(x)
 
             # Date done button 1
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[2]/div/div[2]/div[2]/div[3]/button")
             ActionChains(driver).click(a).perform()
-            time.sleep(0.5)
+            time.sleep(x)
 
 
             if flights >= 2:  # To City 2
@@ -265,11 +255,11 @@ if flag_1:
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
                 a.clear()
                 a.send_keys(usr_dest_2)
-                time.sleep(1)
+                time.sleep(x)
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date 2
                 a = driver.find_element(By.XPATH,
@@ -277,27 +267,27 @@ if flag_1:
                 ActionChains(driver).click(a).perform()
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-                time.sleep(0.5)
+                time.sleep(x)
                 a.send_keys(Keys.BACKSPACE)
                 a.send_keys(date_to_2)
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date done button 2
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/button")
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
             if flights >= 3:  # To City 3
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[4]/div/div/div[1]/div/div/input''')
                 a.clear()
                 a.send_keys(usr_dest_3)
-                time.sleep(1)
+                time.sleep(x)
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[6]/div[3]/ul/li[1]''')
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date 3
                 a = driver.find_element(By.XPATH,
@@ -305,27 +295,27 @@ if flag_1:
                 ActionChains(driver).click(a).perform()
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-                time.sleep(0.5)
+                time.sleep(x)
                 a.send_keys(Keys.BACKSPACE)
                 a.send_keys(date_to_3)
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date done button 3
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[2]/div[3]/button")
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
             if flights >= 4:  # To City 4
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[1]/div[4]/div/div/div[1]/div/div/input''')
                 a.clear()
                 a.send_keys(usr_dest_4)
-                time.sleep(1)
+                time.sleep(x)
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[1]/div[6]/div[3]/ul/li[1]''')
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date 4
                 a = driver.find_element(By.XPATH,
@@ -333,27 +323,27 @@ if flag_1:
                 ActionChains(driver).click(a).perform()
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-                time.sleep(0.5)
+                time.sleep(x)
                 a.send_keys(Keys.BACKSPACE)
                 a.send_keys(date_to_4)
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date done button 4
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[2]/div/div[2]/div[2]/div[3]/button")
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
             if flights >= 5:  # To City 5
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[1]/div[4]/div/div/div[1]/div/div/input''')
                 a.clear()
                 a.send_keys(usr_dest_5)
-                time.sleep(1)
+                time.sleep(x)
                 a = driver.find_element(By.XPATH,
                                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[1]/div[6]/div[3]/ul/li[1]''')
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date 5
                 a = driver.find_element(By.XPATH,
@@ -361,16 +351,16 @@ if flag_1:
                 ActionChains(driver).click(a).perform()
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-                time.sleep(0.5)
+                time.sleep(x)
                 a.send_keys(Keys.BACKSPACE)
                 a.send_keys(date_to_5)
-                time.sleep(0.5)
+                time.sleep(x)
 
                 # Date done button 5
                 a = driver.find_element(By.XPATH,
                                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[2]/div/div[2]/div[2]/div[3]/button")
                 ActionChains(driver).click(a).perform()
-                time.sleep(0.5)
+                time.sleep(x)
 
 # Number of people
 
@@ -378,62 +368,62 @@ if flag_1:
 a = driver.find_element(By.XPATH,
                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[1]/div/button")
 ActionChains(driver).click(a).perform()
-time.sleep(0.5)
+time.sleep(x)
 
 for i in range(adults - 1):
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[2]/ul/li[1]/div/div/span[3]/button")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.1)
+    time.sleep(x)
 
 for i in range(child):
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[2]/ul/li[2]/div/div/span[3]/button")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.1)
+    time.sleep(x)
 
 for i in range(infant_seat):
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[2]/ul/li[3]/div/div/span[3]/button")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.1)
+    time.sleep(x)
 
 for i in range(infant_lap):
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[2]/ul/li[4]/div/div/span[3]/button")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.1)
+    time.sleep(x)
 
 a = driver.find_element(By.XPATH,
                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[2]/div/div[2]/div[2]/button[1]")
 ActionChains(driver).click(a).perform()
-time.sleep(0.5)
+time.sleep(x)
 
 # Type of Class
 a = driver.find_element(By.XPATH,
                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[3]/div/div/div/div[1]")
 ActionChains(driver).click(a).perform()
-time.sleep(0.5)
+time.sleep(x)
 if Class == 2:
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[3]/div/div/div/div[2]/ul/li[2]")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.5)
+    time.sleep(x)
 
 elif Class == 3:
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[3]/div/div/div/div[2]/ul/li[3]")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.5)
+    time.sleep(x)
 
 elif Class == 4:
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[3]/div/div/div/div[2]/ul/li[4]")
     ActionChains(driver).click(a).perform()
-    time.sleep(0.5)
+    time.sleep(x)
 
 # Search
 a = driver.find_element(By.XPATH,
                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[2]/div/button''')
 ActionChains(driver).click(a).perform()
-time.sleep(2)
+time.sleep(x)
