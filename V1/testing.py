@@ -20,7 +20,6 @@ while True:
         break
 
 print()
-print('1. Economy Class\n2. Premium Economy Class\n3. Business Class\n4. First Class')
 while True:
     print('1. Economy Class\n2. Premium Economy Class\n3. Business Class\n4. First Class')
     Class = input('Enter The Class You Would Like To Fly In : ')
