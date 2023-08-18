@@ -1,20 +1,36 @@
+from bs4 import BeautifulSoup
+import tkinter as tk
 import requests
-import json
+import tkinter.font as font
+from rich import print as ps
 
-# Define the API endpoint
-url = 'https://airlabs.co/api/v7/schedules?api_key=your_api_key'
+win = tk.Tk()
+winFont = font.Font(family='Segoe UI', size=11, weight='bold')
 
-# Send a GET request to the API endpoint
-response = requests.get(url)
 
-# If the GET request is successful, the status code will be 200
-   # Parse the response as JSON
-data = json.loads(response.text)
+def airTravel():
+    global driver
+    L14=tk.Label(win, text="-"*69+"Air Travel"+"-"*69,font=winFont)
+    L14.grid(row=15,column=1,pady=15,padx=(30,0))
+    win.update()
+    
+    airport1 = BeautifulSoup(requests.request("GET", f'https://www.travelmath.com/nearest-airport/kuwait').content, "html.parser")
+    airport2 = BeautifulSoup(requests.request("GET", f'https://www.travelmath.com/nearest-airport/goa').content, "html.parser")
+    
+    code1=airport1.find_all("li")
+    code2=airport2.find_all("li")
+    airports=[]
+    airports2=[]
+    c=0
+    for i in code1:
+    
+        st=i.text
+    
+        if(st.find("(") !=-1):
+            airports.append(st[st.find("(")+1:st.find("(")+4])
+        c+=1
+    
+    
+    ps(code1,code2,airports)
 
-# Check if the key is present in the response
-if 'your_key' in data:
-    # Access the value of the key
-    for flight in data['your_key']:
-        print(f"Flight from {flight['departure_airport']} to {flight['arrival_airport']} on {flight['flight_date']}")
-else:
-    print("Key not found in the response")
+airTravel()

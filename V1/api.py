@@ -1,4 +1,5 @@
 import requests
+from rich import print as ps
 
 API_KEY = '5320a6ef-8f85-42c1-9136-6cb44b98a67a'
 
