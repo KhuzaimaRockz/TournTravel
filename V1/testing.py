@@ -5,6 +5,7 @@ from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from error import error_handle
+from api import get_airport_data
 
 ##############################################################
 PATH = "C:\chromedriver.exe"
@@ -81,35 +82,45 @@ while True:
 
 if trip == '1':  # One Way
     usr_from = input('Enter -From- location : ')
+    get_airport_data(usr_from)
     usr_dest = input('Enter -Destination- : ')
+    get_airport_data(usr_dest)
     date_from = input('Enter Date of flight (dd/mm/yyyy) :')
 
 elif trip == '2':  # Round Trip
     usr_from = input('Enter -From- location : ')
+    get_airport_data(usr_from)
     usr_dest = input('Enter -Destination- : ')
+    get_airport_data(usr_dest)
     date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
     date_to = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
 elif trip == '3':
     flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
     usr_from = input('Enter -From- location : ')
+    get_airport_data(usr_from)
     usr_dest_1 = input('Enter -Destination- 1 : ')
+    get_airport_data(usr_dest_1)
     date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
 
     if flights >= 2:
         usr_dest_2 = input('Enter -Destination- 2 : ')
+        get_airport_data(usr_dest_2)
         date_to_2 = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
     if flights >= 3:
         usr_dest_3 = input('Enter -Destination- 3 : ')
+        get_airport_data(usr_dest_3)
         date_to_3 = input('Enter Date of Third Flight (dd/mm/yyyy) :')
 
     if flights >= 4:
         usr_dest_4 = input('Enter -Destination- 4 : ')
+        get_airport_data(usr_dest_4)
         date_to_4 = input('Enter Date of Fourth Flight (dd/mm/yyyy) :')
 
     if flights >= 5:
         usr_dest_5 = input('Enter -Destination- 5 : ')
+        get_airport_data(usr_dest_5)
         date_to_5 = input('Enter Date of Final Flight (dd/mm/yyyy) :')
 
 
