@@ -9,12 +9,13 @@ def get_airport_data(city):
     if len(data['response']['airports_by_cities']) == 1:
         IATA = data['response']['airports_by_cities'][0]['iata_code']
         return IATA
-    else:
+    else:  #make proper
+        print()
         c = 1
         for airport in data['response']['airports_by_cities']:
             print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
             c += 1
         ch = int(input('Select a airport : '))
+        print()
         IATA = data['response']['airports_by_cities'][ch-1]['iata_code']
         return IATA
-ch = input()
