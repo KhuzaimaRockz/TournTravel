@@ -9,7 +9,7 @@ from api import get_airport_data
 import os
 from art import *
 
-PATH = "C:\chromedriver.exe"
+#PATH = "C:\chromedriver.exe"
 x = 2
 
 while True:
