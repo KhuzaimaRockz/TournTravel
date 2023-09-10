@@ -8,8 +8,8 @@ from selenium.webdriver.common.keys import Keys
 # PATH = "C:\chromedriver.exe"
 # flag_1 = True
 
-u_from = "dxb"
-u_dest = "cdg"
+u_from = "lhr"
+u_dest = "dxb"
 options = Options()
 options.add_experimental_option("detach", True)
 driver = webdriver.Chrome()
@@ -30,12 +30,22 @@ time.sleep(2)
 
 # departure
 driver.find_element(By.XPATH, '//*[@id="flight_by_route_from"]').send_keys(u_from)
+driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
 time.sleep(2)
 
 # arrival
 driver.find_element(By.XPATH, '//*[@id="flight_by_route_to"]').send_keys(u_dest)
+driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
 time.sleep(2)
 
 # search
 driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[3]/button').click()
-time.sleep(100)
+time.sleep(2)
+
+#if live aircrafts are available
+element = driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[2]/div[1]/h2')
+search="LIVE FLIGHTS"
+if search not in element.text:
+    print("No Live Flights")
+else:
+    print(" YEAS IT WORK ;-;")

@@ -46,7 +46,7 @@ while True:
     print()
     print()
     print('MAX Number Of People is 9')
-    print('Minimum 1 Adult should be there')   #TAKE TRQQQ's GAE OPINION
+    print('Minimum 1 Adult should be there')
     print('You Must Have 1 Adult for 2 Infant')
     print('You Can Have Up To 8 Children')
     print('For Each Infant on Lap There Must Be One Adult')
