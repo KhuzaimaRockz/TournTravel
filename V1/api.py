@@ -15,27 +15,45 @@ def get_airport_data(city):
         print()
         c = 1
         #pp.pprint(data['response'])
-        for airport in data['response']['airports_by_cities']:
-            try:
-                #print(airport) #debug
-                #input(" press Enter.") #debug
-                print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
-                c += 1
-            except KeyError as Ke:
-                pass
-        for airport in data['response']['airports_by_countries']:
-            try:
-                #print(airport) #debug
-                #input(" press Enter.") #debug
-                print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
-                c += 1
-            except KeyError as Ke:
-                pass
+        port=""
+        flag1=True
+        flag2 = True
+        def for1():
+            global port
+            global flag1
+            for airport in data['response']['airports_by_cities']:
+                try:
+                    #print(airport) #debug
+                    #input(" press Enter.") #debug
+                    print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
+                    c += 1
+                    port=data['response']['airports_by_cities'][ch-1]['iata_code']
+                except KeyError as Ke:
+                    flag1=False
+                    pass
+
+        def for2():
+            global port
+            global flag2
+            for airport in data['response']['airports_by_countries']:
+                try:
+                    #print(airport) #debug
+                    #input(" press Enter.") #debug
+                    print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
+                    c += 1
+                    port=data['response']['airports_by_countries'][ch-1]['iata_code']
+                except KeyError as Ke:
+                    flag2=False
+                    pass
             
         ch = int(input('Select a airport : '))
         print()
-        IATA = data['response']['airports_by_cities'][ch-1]['iata_code']
-        return IATA
+        for1()
+        for2()
+        if flag1==True and flag2!=True:
+            return port
+        elif flag2==True and flag1!=True:
+            return port
 x = input("Enter destination : ")
 haha = get_airport_data(x)
 print(haha)
