@@ -16,7 +16,7 @@ def get_airport_data(city):
         c = 1
         pp.pprint(data['response'])
         for airport in data['response']['airports_by_cities']:
-            if airport['iata_code']:
+            if airport['iata_code']==True:
                 print(airport) #debug
                 input(" press Enter.") #debug
                 print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
