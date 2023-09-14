@@ -501,49 +501,41 @@ while True:
     ActionChains(driver).click(a).perform()
     time.sleep(6)
 
-    #Live flights
-    driver = webdriver.Chrome()
-    driver.implicitly_wait(10)
+    # Retrieving data
+      #1st deal
+    air1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[2]')
+    dura1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[3]/div')
+    time1p1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+    time1p2=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+    stops1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+    price1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
 
-    driver.get('https://www.flightradar24.com/')
-    # clicking continue with cookies button
-    driver.find_element(By.XPATH, '/html/body/div[3]/div[2]/div/div/div[2]/div/div/button').click()
-    time.sleep(2)
+      #2nd deal
+    air2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[2]')
+    dura2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[3]/div')
+    time2p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+    time2p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+    stops2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+    price2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
 
-    # search bar
-    driver.find_element(By.XPATH, '//*[@id="searchBox"]').click()
-    time.sleep(2)
-
-    # click flight by route opt
-    driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div[2]/a[1]').click()
-    time.sleep(2)
-
-    # departure
-    driver.find_element(By.XPATH, '//*[@id="flight_by_route_from"]').send_keys(usr_from)
-    driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
-    time.sleep(2)
-
-    # arrival
-    driver.find_element(By.XPATH, '//*[@id="flight_by_route_to"]').send_keys(usr_dest)
-    driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
-    time.sleep(2)
-
-    # search
-    driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[3]/button').click()
-    time.sleep(2)
-
-    #if live aircrafts are available
-    element = driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[2]/div[1]/h2')
-    search="LIVE FLIGHTS"
-    if search not in element.text:
-        print("No Live Flights")
-    else:
-        driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div[1]/div/a').click()
-        time.sleep(2)
-        element=driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div[2]/div/div/div[2]/div[2]/div[1]/div/div/div/div[2]/a[3]')
-        ActionChains(driver).move_to_element(element).perform()
-        time.sleep(1)
-        driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/a[1]/span').click()
-        time.sleep(2)
-        driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[3]/main/div/div/div/div[6]/div/footer/div/button[2]').click()
-    time.sleep(100)
+      #3rd deal
+    air3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[2]')
+    dura3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[3]/div')
+    time3p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+    time3p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+    stops3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+    price3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
+    #printing
+    print("="*85)
+    print("*"*37, "1st Deal", "*"*38)
+    print("Time: ", time1p1.text, "-", time1p2.text," "*3, "Flight Duration: ", dura1.text," "*3, "stops:",stops1.text)
+    print("Airlines: ",  air1.text," "*3, "Ticket Price (KWD): ", price1.text)
+    print("-"*85)
+    print("*"*37, "2nd Deal", "*"*38)
+    print("Time: ", time2p1.text, "-", time2p2.text," "*3, "Flight Duration: ", dura2.text," "*3, "stops:",stops2.text)
+    print("Airlines: ",  air2.text," "*3, "Ticket Price (KWD): ", price2.text)
+    print("-"*85)
+    print("*"*37, "3rd Deal", "*"*38)
+    print("Time: ", time3p1.text, "-", time3p2.text," "*3, "Flight Duration: ", dura3.text," "*3, "stops:",stops3.text)
+    print("Airlines: ",  air3.text," "*3, "Ticket Price (KWD): ", price3.text)
+    print("="*85)
