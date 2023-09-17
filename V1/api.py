@@ -23,12 +23,12 @@ def get_airport_data(city):
     airports = data['response']['airports_by_cities'] + data['response']['airports_by_countries']
     if len(airports) == 1:
         return airports[0]['iata_code']
-   
-    for i, airport in enumerate(airports, start=1):
-        try:
-            print(f"{i}. {airport['name']} ({airport['iata_code']})")
-        except KeyError as Ke:
-            pass
+    else:
+        for i, airport in enumerate(airports, start=1):
+            try:
+                print(f"{i}. {airport['name']} ({airport['iata_code']})")
+            except KeyError as Ke:
+                pass
 
     ch = int(input('Select an airport : '))
     return airports[ch-1]['iata_code']
