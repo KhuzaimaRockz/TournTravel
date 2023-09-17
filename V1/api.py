@@ -21,7 +21,9 @@ def get_airport_data(city):
     response = requests.get(url)
     data = response.json()
     airports = data['response']['airports_by_cities'] + data['response']['airports_by_countries']
-    
+    if len(airports) == 1:
+        return airports[0]['iata_code']
+   
     for i, airport in enumerate(airports, start=1):
         try:
             print(f"{i}. {airport['name']} ({airport['iata_code']})")
@@ -29,9 +31,8 @@ def get_airport_data(city):
             pass
 
     ch = int(input('Select an airport : '))
-    global result
-    result = airports[ch-1]['iata_code']
-    return result
+    return airports[ch-1]['iata_code']
+    
 
 
 x = input("Enter destination : ")
