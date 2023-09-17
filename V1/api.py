@@ -16,23 +16,23 @@ def get_airport_data(city):
         c = 1
         #pp.pprint(data['response'])
 
-            for airport in data['response']['airports_by_cities']:
-                try:
-                    #print(airport) #debug
-                    #input(" press Enter.") #debug
-                    print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
-                    c += 1
-                except KeyError as Ke:
-                    pass
+        for airport in data['response']['airports_by_cities']:
+            try:
+                #print(airport) #debug
+                #input(" press Enter.") #debug
+                print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
+                c += 1
+            except KeyError as Ke:
+                pass
 
-            for airport in data['response']['airports_by_countries']:
-                try:
-                    #print(airport) #debug
-                    #input(" press Enter.") #debug
-                    print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
-                    c += 1
-                except KeyError as Ke:
-                    pass
+        for airport in data['response']['airports_by_countries']:
+            try:
+                #print(airport) #debug
+                #input(" press Enter.") #debug
+                print(f"{c}. {airport['name']} - {airport['iata_code']} ({airport['country_code']})")
+                c += 1
+            except KeyError as Ke:
+                pass
 
         ch = int(input('Select a airport : '))
         print()
