@@ -21,17 +21,24 @@ def get_airport_data(city):
     response = requests.get(url)
     data = response.json()
     airports = data['response']['airports_by_cities'] + data['response']['airports_by_countries']
-    if len(airports) == 1:
-        return airports[0]['iata_code']
-    else:
-        for i, airport in enumerate(airports, start=1):
-            try:
-                print(f"{i}. {airport['name']} ({airport['iata_code']})")
-            except KeyError as Ke:
-                pass
+    
+    # Filter out airports without an 'iata_code' field
+    airports = [airport 
+                for airport in airports 
+                if 'iata_code' in airport]
+    
+    # Remove duplicates
+    airports = list({airport['iata_code']: airport for airport in airports}.values())
+    
+    for i, airport in enumerate(airports, start=1):
+        try:
+            print(f"{i}. {airport['name']} ({airport['iata_code']})")
+        except KeyError as Ke:
+            pass
 
     ch = int(input('Select an airport : '))
     return airports[ch-1]['iata_code']
+    
     
 
 
