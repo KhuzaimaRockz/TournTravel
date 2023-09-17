@@ -35,6 +35,6 @@ def get_airport_data(city):
     
 
 
-x = input("Enter destination : ")
-haha = get_airport_data(x)
-print(haha)
+# x = input("Enter destination : ")
+# haha = get_airport_data(x)
+# print(haha)
