@@ -13,7 +13,7 @@ driver.implicitly_wait(10)
 
 driver.get('https://www.flightradar24.com/')
 # clicking continue with cookies button
-driver.find_element(By.XPATH, '/html/body/div[3]/div[2]/div/div/div[2]/div/div/button').click()
+driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
 time.sleep(2)
 
 # search bar
