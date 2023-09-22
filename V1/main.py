@@ -13,11 +13,11 @@ from art import *
 x = 2
 
 while True:
-    # Clear screen
-    if os.name == 'nt':  # Windows
-        os.system('cls')
-    else:
-        os.system('clear')  # Unix based shells
+    # # Clear screen
+    # if os.name == 'nt':  # Windows
+    #     os.system('cls')
+    # else:
+    #     os.system('clear')  # Unix based shells
         
     # Title
     print('*'*83)

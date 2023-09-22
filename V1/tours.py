@@ -2,7 +2,8 @@
 # and then we can display the option for show, update, delete, ex
 import csv
 
-
+g2=" "*2
+g3=" "*3
 # display 3 country packages (Georgia, Azerbaijan, Turkiye): (things to display for options)
 # country
 # per person price
