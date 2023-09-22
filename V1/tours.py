@@ -10,9 +10,8 @@ g3=" "*3
 # days and nights
 # date (from and to)
 # (after user chooses a package to view more info):
-# major cities
-# attractions
-# food recommendations
+# attractions (8 places)
+# food recommendations (4)
 # inclusions
 # create your own package
 # edit a package
@@ -56,24 +55,37 @@ def create():
         L = ([c, country, dfrom, dto, nonights, noday, paprice])
     mywriter.writerow(L)
     file.close()
-
+    file2 = open('pacinfo.csv',mode='a',newline='')
+    mywriter2 = csv.writer(file2, delimiter=',')
+    L2 = []
+    for j in range(8):
+        attractions = input("Enter attractions:")
+        L2.append(attractions)
+    for k in range(4):
+        food = input("Enter Food recommendation:")
+        L2.append(food)
+    mywriter2.writerow(L2)
+    file2.close()
 
 def packages():
     file = open('tours.csv', mode='r')
     myreader = csv.reader(file)
+    g1 = "*"*40
     for row in myreader:
-        print("=" * 90)
-        print("*" * 36, row[0], end='')
-        print('. ', row[1].upper(), "*" * 36)
+        print("=" * 100)
+        one = (row[0], row[1].upper())
+        string = ".".join(one)
+        h = f"{string:^100s}"
+        print(h)
         print('Date ', row[2], end='')
         print(' ' * 40, row[4], ' Days and')
-        print('to ', row[3], end='')
-        print(' ' * 42, row[5], ' Nights')
+        print('to   ', row[3], end='')
+        print(' ' * 40, row[5], ' Nights')
         print(' ' * 20, 'Special Price: ', row[6], 'KWD Per Head')
-        print("=" * 90)
+        print("=" * 100)
     file.close()
 
 packages()
-# create()
-opt = int(input("Enter the package number that you would like to view: "))
-pacinfo(opt)
+#create()
+#opt = int(input("Enter the package number that you would like to view: "))
+#pacinfo(opt)

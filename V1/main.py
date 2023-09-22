@@ -161,7 +161,7 @@ while True:
 
     a = driver.find_element(By.XPATH,
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[1]")
-    time.sleep(x)
+    driver.implicitly_wait(10)
     ActionChains(driver).click(a).perform()
 
     if trip == '1':  # One Way
