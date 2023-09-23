@@ -17,17 +17,6 @@ g3=" "*3
 # edit a package
 # delete a package
 # exit
-def pacinfo(opt):
-    with open('pacinfo.csv', "r") as f:
-        reader = csv.reader(f)
-        try:
-            for i in range(opt):
-                row = next(reader)
-            print(row[0])
-            print(row[1])
-            print(row[2])
-        except StopIteration:
-            print("The row does not exist.")
 
 def create():
     c = 0
@@ -58,9 +47,11 @@ def create():
     file2 = open('pacinfo.csv',mode='a',newline='')
     mywriter2 = csv.writer(file2, delimiter=',')
     L2 = []
+    print("8 Attractions to be entered")
     for j in range(8):
         attractions = input("Enter attractions:")
         L2.append(attractions)
+    print("4 Food recommendations to be entered")
     for k in range(4):
         food = input("Enter Food recommendation:")
         L2.append(food)
@@ -70,20 +61,41 @@ def create():
 def packages():
     file = open('tours.csv', mode='r')
     myreader = csv.reader(file)
-    g1 = "*"*40
+    g3=" "*3
     for row in myreader:
         print("=" * 100)
+        print('*'*37, end='')
         one = (row[0], row[1].upper())
         string = ".".join(one)
-        h = f"{string:^100s}"
-        print(h)
-        print('Date ', row[2], end='')
-        print(' ' * 40, row[4], ' Days and')
-        print('to   ', row[3], end='')
-        print(' ' * 40, row[5], ' Nights')
-        print(' ' * 20, 'Special Price: ', row[6], 'KWD Per Head')
+        print(f"{string:^26s}", end='')
+        print(f"{'*' * 37:^20}")
+        print('' * 30, end='')
+        print(f"{'Date':^18s}{g3}{'To':^16s}", end='')
+        print(' ' * 26, end='')
+        print(f"{'Days':^17s}{g3}{'Nights':^17s}")
+
+        #print(' ' * 40, row[4], ' Days and')
+        #print('to   ', row[3], end='')
+        #print(' ' * 40, row[5], ' Nights')
+        print('-' * 30, end='')
+        one2 = (row[6])
+        string2 = "".join(one2)
+        print(f"{' Special Price: '}{string2:^10s}{'KWD Per Head '}", end='')
+        print(f"{'-' * 30:^20}")
+
         print("=" * 100)
     file.close()
+def pacinfo(opt):
+    with open('pacinfo.csv', "r") as f:
+        reader = csv.reader(f)
+        try:
+            for i in range(opt):
+                row = next(reader)
+            print(row[0])
+            print(row[1])
+            print(row[2])
+        except StopIteration:
+            print("The row does not exist.")
 
 packages()
 #create()
