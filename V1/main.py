@@ -20,37 +20,50 @@ while True:
     #     os.system('clear')  # Unix based shells
         
     # Title
-    print('*'*83)
-    tprint('TravelOn Tours')
-    print('*'*83)
+    print('*'*100)
+    tprint('TravelOn Tours'.center(25))
+    print('*'*100)
         
     while True:
-        print("1. One Way\n2. Round Trip\n3. Multi City")
+        print('='*100)
+        print(f"{'1. One Way':^100s}")
+        print(f"{'2. Round Trip':^100s}")
+        print('=' * 100)
         trip = input("select the trip option: ")
-        if trip not in ['1','2','3']:
+        if trip not in ['1','2']:
             input("Error: Invalid input (ENTER): ")
             error_handle(101)
         else:
             break
 
-    print()
+    print('-'*100)
     while True:
-        print('1. Economy Class\n2. Premium Economy Class\n3. Business Class\n4. First Class')
+        print('*' * 100)
+        tprint('TravelOn Tours'.center(25))
+        print('*' * 100)
+        print('='*100)
+        print('1. Economy Class'.center(100))
+        print('2. Business Class'.center(100))
+        print('3. First Class'.center(100))
+        print('=' * 100)
         Class = input('Enter The Class You Would Like To Fly In : ')
-        if Class not in ['1','2','3','4']:
-            input("Error: Invalid input (ENTER): ")
+        if Class not in ['1','2','3']:
+            input("Error: Invalid input (ENTER)")
             error_handle(101)
         else:
             break
 
-    print()
-    print()
-    print('MAX Number Of People is 9')
-    print('Minimum 1 Adult should be there')
-    print('You Must Have 1 Adult for 2 Infant')
-    print('You Can Have Up To 8 Children')
-    print('For Each Infant on Lap There Must Be One Adult')
-    print()
+    print('-'*100)
+    print('*' * 100)
+    tprint('TravelOn Tours'.center(25))
+    print('*' * 100)
+    print('='*100)
+    print(f"{'MAX Number Of People is 9':^100s}")
+    print(f"{'Minimum 1 Adult should be there':^100s}")
+    print(f"{'You Must Have 1 Adult for 2 Infant':^100s}")
+    print(f"{'You Can Have Up To 8 Children':^100s}")
+    print(f"{'For Each Infant on Lap There Must Be One Adult':^100s}")
+    print('='*100)
 
     while True:
         People_count = 0
@@ -94,6 +107,10 @@ while True:
             break
 
     if trip == '1':  # One Way
+        print('*' * 100)
+        tprint('TravelOn Tours'.center(25))
+        print('*' * 100)
+        print('-'*100)
         usr_from = input('Enter -From- location : ')
         usr_from = get_airport_data(usr_from)
         
@@ -103,6 +120,10 @@ while True:
         date_from = input('Enter Date of flight (dd/mm/yyyy) :')
 
     elif trip == '2':  # Round Trip
+        print('*' * 100)
+        tprint('TravelOn Tours'.center(25))
+        print('*' * 100)
+        print('-' * 100)
         usr_from = input('Enter -From- location : ')
         usr_from = get_airport_data(usr_from)
         
@@ -112,7 +133,7 @@ while True:
         date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
         date_to = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
-    elif trip == '3':
+    #elif trip == '3':
         flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
         
         usr_from = input('Enter -From- location : ')
@@ -174,7 +195,7 @@ while True:
                                 "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[1]")
         time.sleep(x)
         ActionChains(driver).click(c).perform()
-    elif trip == '3':  # Multi City
+    #elif trip == '3':  # Multi City
         d = driver.find_element(By.XPATH,
                                 "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[3]")
         time.sleep(x)
@@ -267,7 +288,7 @@ while True:
         time.sleep(x)
 
 
-    elif trip == '3':
+    #elif trip == '3': #Multi city
         # Add Flight
         time.sleep(x)
         a = driver.find_element(By.XPATH,
@@ -526,16 +547,42 @@ while True:
     stops3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[4]/div[1]/span')
     price3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
     #printing
-    print("="*85)
-    print("*"*37, "1st Deal", "*"*38)
-    print("Time: ", time1p1.text, "-", time1p2.text," "*3, "Flight Duration: ", dura1.text," "*3, "stops:",stops1.text)
-    print("Airlines: ",  air1.text," "*3, "Ticket Price (KWD): ", price1.text)
-    print("-"*85)
-    print("*"*37, "2nd Deal", "*"*38)
-    print("Time: ", time2p1.text, "-", time2p2.text," "*3, "Flight Duration: ", dura2.text," "*3, "stops:",stops2.text)
-    print("Airlines: ",  air2.text," "*3, "Ticket Price (KWD): ", price2.text)
-    print("-"*85)
-    print("*"*37, "3rd Deal", "*"*38)
-    print("Time: ", time3p1.text, "-", time3p2.text," "*3, "Flight Duration: ", dura3.text," "*3, "stops:",stops3.text)
-    print("Airlines: ",  air3.text," "*3, "Ticket Price (KWD): ", price3.text)
-    print("="*85)
+    print('*' * 100)
+    tprint('TravelOn Tours'.center(25))
+    print('*' * 100)
+    print()
+    g26 = " " * 26
+    print("=" * 100)
+    print('*' * 37, end='')
+    print(f"{'1st DEAL':^26s}", end='')
+    print(f"{'*' * 37:^20}")
+    print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+    time = (time1p1.text, time1p2.text)
+    jtime = "-".join(time)
+    print(f"{jtime:^37s}{dura1.text:^26s}{stops1.text:^37s}")
+    print()
+    print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+    print(f"{air1.text:^50}{price1.text:^50}")
+    print("-" * 100)
+    print('*' * 37, end='')
+    print(f"{'2nd DEAL':^26s}", end='')
+    print(f"{'*' * 37:^20}")
+    print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+    time2 = (time2p1.text, time2p2.text)
+    jtime2 = "-".join(time2)
+    print(f"{jtime2:^37s}{dura2.text:^26s}{stops2.text:^37s}")
+    print()
+    print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+    print(f"{air2.text:^50}{price2.text:^50}")
+    print("-"*100)
+    print('*' * 37, end='')
+    print(f"{'3rd DEAL':^26s}", end='')
+    print(f"{'*' * 37:^20}")
+    print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+    time3 = (time3p1.text, time3p2.text)
+    jtime3 = "-".join(time3)
+    print(f"{jtime3:^37s}{dura3.text:^26s}{stops3.text:^37s}")
+    print()
+    print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+    print(f"{air3.text:^50}{price3.text:^50}")
+    print("="*100)

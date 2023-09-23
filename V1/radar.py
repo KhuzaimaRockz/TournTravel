@@ -25,12 +25,14 @@ driver.find_element(By.XPATH, '//*[@id="app"]/div/div/div[1]/div/div/div/div[2]/
 time.sleep(2)
 
 # departure
-driver.find_element(By.XPATH, '//*[@id="flight_by_route_from"]').send_keys(usr_dest)
+driver.find_element(By.XPATH, '//*[@id="flight_by_route_from"]').send_keys("CDG")
+time.sleep(1)
 driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[1]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
 time.sleep(2)
 
 # arrival
-driver.find_element(By.XPATH, '//*[@id="flight_by_route_to"]').send_keys(u_dest)
+driver.find_element(By.XPATH, '//*[@id="flight_by_route_to"]').send_keys('DXB')
+time.sleep(1)
 driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div/div[2]/div/div[2]/div/div/div/div/div[2]/div/ul/li/a/span[1]').click()
 time.sleep(2)
 

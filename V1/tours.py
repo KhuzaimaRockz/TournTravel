@@ -1,6 +1,7 @@
 # we use csv or binary file and we will have existing tour offers by travelon
 # and then we can display the option for show, update, delete, ex
 import csv
+from art import *
 
 g2=" "*2
 g3=" "*3
@@ -63,6 +64,10 @@ def packages():
     file = open('tours.csv', mode='r')
     myreader = csv.reader(file)
     g3=" "*3
+    print('*' * 100)
+    tprint('TravelOn Tours'.center(25))
+    print('*' * 100)
+    print()
     for row in myreader:
         print("=" * 100)
         print('*'*37, end='')
@@ -86,9 +91,14 @@ def packages():
         print("=" * 100)
     file.close()
 def pacinfo(opt):
+    print('*' * 100)
+    tprint('TravelOn Tours'.center(25))
+    print('*' * 100)
+    print()
     with open('pacinfo.csv', "r") as f:
         reader = csv.reader(f)
-        g3=' '*26
+        g26= ' ' * 26
+
         try:
             for i in range(opt):
                 row = next(reader)
@@ -96,30 +106,39 @@ def pacinfo(opt):
             print('*' * 37, end='')
             print(f"{'ATTRACTIONS':^26s}", end='')
             print(f"{'*' * 37:^20}")
-            print(f"{row[0]:^37s}{g3}{row[1]:^37s}")
-            print(f"{row[2]:^37s}{g3}{row[3]:^37s}")
-            print(f"{row[4]:^37s}{g3}{row[5]:^37s}")
-            print(f"{row[6]:^37s}{g3}{row[7]:^37s}")
+            print(f"{row[0]:^37s}{g26}{row[1]:^37s}")
+            print(f"{row[2]:^37s}{g26}{row[3]:^37s}")
+            print(f"{row[4]:^37s}{g26}{row[5]:^37s}")
+            print(f"{row[6]:^37s}{g26}{row[7]:^37s}")
             print("-" * 100)
             print('*' * 37, end='')
             print(f"{'FOOD RECOMMENDATIONS':^26s}", end='')
             print(f"{'*' * 37:^20}")
-            print(f"{row[8]:^37s}{g3}{row[9]:^37s}")
-            print(f"{row[10]:^37s}{g3}{row[11]:^37s}")
+            print(f"{row[8]:^37s}{g26}{row[9]:^37s}")
+            print(f"{row[10]:^37s}{g26}{row[11]:^37s}")
             print("-" * 100)
             print('*' * 37, end='')
             print(f"{'INCLUSIONS':^26s}", end='')
             print(f"{'*' * 37:^20}")
-            print(f"{'Hotel':^37s}{g3}{'Breakfast':^37s}")
-            print(f"{'Guide':^37s}{g3}{'Private Car':^37s}")
-            print(f"{'Sim Card':^37s}{g3}{'Water':^37s}")
-            print(f"{'Entrance Tickets':^37s}{g3}{'Airport Transfer':^37s}")
-            print(f"{'Insurance':^37s}{g3}{'Air Tickets':^37s}")
+            print(f"{'Hotel':^37s}{g26}{'Breakfast':^37s}")
+            print(f"{'Guide':^37s}{g26}{'Private Car':^37s}")
+            print(f"{'Sim Card':^37s}{g26}{'Water':^37s}")
+            print(f"{'Entrance Tickets':^37s}{g26}{'Airport Transfer':^37s}")
+            print(f"{'Insurance':^37s}{g26}{'Air Tickets':^37s}")
             print("=" * 100)
         except StopIteration:
+            print('*' * 100)
+            tprint('TravelOn Tours'.center(25))
+            print('*' * 100)
+            print()
             print("The row does not exist.")
 
+
+print('*' * 100)
+tprint('TravelOn Tours'.center(25))
+print('*' * 100)
+print()
 #packages()
 #create()
-#opt = int(input("Enter the package number that you would like to view: "))
-#pacinfo(opt)
+opt = int(input("Enter the package number that you would like to view: "))
+pacinfo(opt)
