@@ -10,7 +10,7 @@ import os
 from art import *
 
 #PATH = "C:\chromedriver.exe"
-x = 2
+x = 1.5 # global sleep value
 
 while True:
     # # Clear screen
