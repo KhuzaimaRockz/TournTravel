@@ -31,7 +31,7 @@ def ticket():
             print(f"{'1. One Way':^100s}")
             print(f"{'2. Round Trip':^100s}")
             print('=' * 100)
-            trip = input("select the trip option: ")
+            trip = input("Enter your trip selection: ")
             if trip not in ['1','2']:
                 input("Error: Invalid input (ENTER): ")
                 error_handle(101)
