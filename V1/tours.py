@@ -134,11 +134,12 @@ def pacinfo(opt):
             print("The row does not exist.")
 
 
+
+packages()
+#create()
 print('*' * 100)
 tprint('TravelOn Tours'.center(25))
 print('*' * 100)
-print()
-#packages()
-#create()
+print() 
 opt = int(input("Enter the package number that you would like to view: "))
 pacinfo(opt)

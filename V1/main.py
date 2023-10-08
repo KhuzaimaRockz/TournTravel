@@ -177,7 +177,7 @@ while True:
     driver = webdriver.Chrome(options=options)
 
     driver.get('https://www.google.com/travel/flights')
-    time.sleep(x)
+    driver.implicitly_wait(10)
 
 
     a = driver.find_element(By.XPATH,
