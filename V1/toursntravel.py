@@ -177,6 +177,7 @@ def ticket():
 
         options = Options()
         options.add_experimental_option("detach", True)
+        options.add_argument("--headless=new") # headless
 
         driver = webdriver.Chrome(options=options)
 
@@ -591,6 +592,8 @@ def radar(usr_from, usr_dest):
     #need to integrate this code to main.py
     options = Options()
     options.add_experimental_option("detach", True)
+    options.add_argument("--window-size=1360,760") # specific window size
+
     driver = webdriver.Chrome()
     driver.implicitly_wait(10)
 
