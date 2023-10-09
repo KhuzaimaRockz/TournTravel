@@ -13,6 +13,11 @@ from radar import *
 
 
 def ticket():
+    from selenium import webdriver
+    from selenium.webdriver.common.by import By
+
+    from selenium.webdriver.chrome.options import Options
+    from selenium.webdriver.common.action_chains import ActionChains
     import time
     x = 1.5 # global sleep value
     while True:
@@ -592,12 +597,16 @@ def radar(usr_from, usr_dest):
     #need to integrate this code to main.py
     options = Options()
     options.add_experimental_option("detach", True)
-    options.add_argument("--window-size=1360,760") # specific window size
+    options.add_argument("--window-size=1050,708") # specific window size
 
-    driver = webdriver.Chrome()
+    driver = webdriver.Chrome(options=options)
     driver.implicitly_wait(10)
 
     driver.get('https://www.flightradar24.com/')
+    w = driver.get_window_size().get("width")
+    h = driver.get_window_size().get("height")
+    print(w)
+    print(h)
     # clicking continue with cookies button
     driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
     time.sleep(2)
