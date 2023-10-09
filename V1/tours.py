@@ -49,12 +49,16 @@ def tours():
         file2 = open('pacinfo.csv',mode='a',newline='')
         mywriter2 = csv.writer(file2, delimiter=',')
         L2 = []
-        print("Inclusions will be offered by TravelOn Tours which are fixed for every trip!")
-        print("8 Attractions to be entered")
+        print('-' * 100)
+        print(f"{'Inclusions will be offered by TravelOn Tours which are fixed for every trip!':^100s}")
+        print(f"{'8 Attractions to be entered':^100s}")
+        print('-' * 100)
         for j in range(8):
             attractions = input("Enter attractions:")
             L2.append(attractions)
-        print("4 Food recommendations to be entered")
+        print('-' * 100)
+        print(f"{'4 Food recommendations to be entered':^100s}")
+        print('-' * 100)
         for k in range(4):
             food = input("Enter Food recommendation:")
             L2.append(food)
