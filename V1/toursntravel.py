@@ -30,9 +30,10 @@ def ticket():
             print('='*100)
             print(f"{'1. One Way':^100s}")
             print(f"{'2. Round Trip':^100s}")
+            print(f"{'3. Go Back To Main Menu':^100s}")
             print('=' * 100)
             trip = input("Enter your trip selection: ")
-            if trip not in ['1','2']:
+            if trip not in ['1','2','3']:
                 input("Error: Invalid input (ENTER): ")
                 error_handle(101)
             else:
@@ -135,7 +136,7 @@ def ticket():
             date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
             date_to = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
-        #elif trip == '3':
+        #elif trip == '4':
             flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
             
             usr_from = input('Enter -From- location : ')

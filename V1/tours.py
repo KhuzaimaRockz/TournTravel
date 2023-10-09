@@ -2,6 +2,7 @@
 # and then we can display the option for show, update, delete, ex
 import csv
 from art import *
+from error import error_handle
 
 def tours():
     g2=" "*2
@@ -96,7 +97,7 @@ def tours():
             print("=" * 100)
         file.close()
         
-    def pacinfo(opt):
+    def pacinfo(optpac):
         print('*' * 100)
         tprint('TravelOn Tours'.center(25))
         print('*' * 100)
@@ -106,7 +107,7 @@ def tours():
             g26= ' ' * 26
 
             try:
-                for i in range(opt):
+                for i in range(optpac):
                     row = next(reader)
                 print("=" * 100)
                 print('*' * 37, end='')
@@ -140,12 +141,49 @@ def tours():
                 print("The row does not exist.")
 
 
-
-    packages()
-    #create()
+#calling the functions:
     print('*' * 100)
     tprint('TravelOn Tours'.center(25))
     print('*' * 100)
-    print() 
-    opt = int(input("Enter the package number that you would like to view: "))
-    pacinfo(opt)
+    while True:
+        print('=' * 100)
+        print(f"{'1. Existing Packages':^100s}")
+        print(f"{'2. Create A Package':^100s}")
+        print(f"{'3. Update A Package':^100s}")
+        print(f"{'4. Delete A Package':^100s}")
+        print(f"{'5. Go Back To Main Menu':^100s}")
+        print('=' * 100)
+        opt = input("Enter Your Choice: ")
+        if opt not in ['1', '2', '3', '4', '5']:
+            input("Error: Invalid input (ENTER): ")
+            error_handle(101)
+        else:
+            break
+    if opt == '1':  # One Way
+        packages()
+        optpac = int(input("Enter A Package For More Info: "))
+        pacinfo(optpac)
+    elif opt == '2':
+        #create()
+        douopt = input("Do You Want To See New Packages? (Y/N): ")
+        if douopt not in ['Y','y','N','n']:
+            input("Error: Invalid input (ENTER): ")
+            error_handle(101)
+        elif douopt in ['Y', 'y']:
+            packages()
+    elif opt == '3':
+        update()
+        douopt = input("Do You Want To See Updated Packages? (Y/N): ")
+        if douopt not in ['Y', 'y', 'N', 'n']:
+            input("Error: Invalid input (ENTER): ")
+            error_handle(101)
+        elif douopt in ['Y', 'y']:
+            packages()
+    elif opt == '4':
+        delete()
+        douopt = input("Do You Want To See Older Packages? (Y/N): ")
+        if douopt not in ['Y', 'y', 'N', 'n']:
+            input("Error: Invalid input (ENTER): ")
+            error_handle(101)
+        elif douopt in ['Y', 'y']:
+            packages()
