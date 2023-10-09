@@ -133,6 +133,7 @@ def tours():
                 print(f"{'Entrance Tickets':^37s}{g26}{'Airport Transfer':^37s}")
                 print(f"{'Insurance':^37s}{g26}{'Air Tickets':^37s}")
                 print("=" * 100)
+                input("Press [ENTER] to continue.")
             except StopIteration:
                 print('*' * 100)
                 tprint('TravelOn Tours'.center(25))

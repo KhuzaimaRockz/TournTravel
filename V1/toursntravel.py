@@ -1,18 +1,19 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-import time
+
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.common.keys import Keys
 from error import error_handle
 from api import get_airport_data
-import os
 from art import *
+from radar import *
 
 #PATH = "C:\chromedriver.exe"
 
 
 def ticket():
+    import time
     x = 1.5 # global sleep value
     while True:
         # # Clear screen
@@ -137,39 +138,39 @@ def ticket():
             date_to = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
         #elif trip == '4':
-            flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
+            # flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
             
-            usr_from = input('Enter -From- location : ')
-            usr_from = get_airport_data(usr_from)
+            # usr_from = input('Enter -From- location : ')
+            # usr_from = get_airport_data(usr_from)
             
-            usr_dest_1 = input('Enter -Destination- 1 : ')
-            usr_dest_1 = get_airport_data(usr_dest_1)
+            # usr_dest_1 = input('Enter -Destination- 1 : ')
+            # usr_dest_1 = get_airport_data(usr_dest_1)
             
-            date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
+            # date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
 
-            if flights >= 2:
-                usr_dest_2 = input('Enter -Destination- 2 : ')
-                usr_dest_2 = get_airport_data(usr_dest_2)
+            # if flights >= 2:
+            #     usr_dest_2 = input('Enter -Destination- 2 : ')
+            #     usr_dest_2 = get_airport_data(usr_dest_2)
                 
-                date_to_2 = input('Enter Date of Second Flight (dd/mm/yyyy) :')
+            #     date_to_2 = input('Enter Date of Second Flight (dd/mm/yyyy) :')
 
-            if flights >= 3:
-                usr_dest_3 = input('Enter -Destination- 3 : ')
-                usr_dest_3 = get_airport_data(usr_dest_3)
+            # if flights >= 3:
+            #     usr_dest_3 = input('Enter -Destination- 3 : ')
+            #     usr_dest_3 = get_airport_data(usr_dest_3)
                 
-                date_to_3 = input('Enter Date of Third Flight (dd/mm/yyyy) :')
+            #     date_to_3 = input('Enter Date of Third Flight (dd/mm/yyyy) :')
 
-            if flights >= 4:
-                usr_dest_4 = input('Enter -Destination- 4 : ')
-                usr_dest_4 = get_airport_data(usr_dest_4)
+            # if flights >= 4:
+            #     usr_dest_4 = input('Enter -Destination- 4 : ')
+            #     usr_dest_4 = get_airport_data(usr_dest_4)
                 
-                date_to_4 = input('Enter Date of Fourth Flight (dd/mm/yyyy) :')
+            #     date_to_4 = input('Enter Date of Fourth Flight (dd/mm/yyyy) :')
 
-            if flights >= 5:
-                usr_dest_5 = input('Enter -Destination- 5 : ')
-                usr_dest_5 = get_airport_data(usr_dest_5)
+            # if flights >= 5:
+            #     usr_dest_5 = input('Enter -Destination- 5 : ')
+            #     usr_dest_5 = get_airport_data(usr_dest_5)
                 
-                date_to_5 = input('Enter Date of Final Flight (dd/mm/yyyy) :')
+            #     date_to_5 = input('Enter Date of Final Flight (dd/mm/yyyy) :')
 
 
         flag_1 = True
