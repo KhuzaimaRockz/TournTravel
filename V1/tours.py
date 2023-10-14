@@ -140,6 +140,55 @@ def tours():
                 print('*' * 100)
                 print()
                 print("The row does not exist.")
+    def update():
+        pack=int(input("Enter the package you want to modify:"))
+        with open("tours.csv",'r', newline='') as f:
+            reader = csv.reader(f)
+
+            while True:
+                print("1. Country name")
+                print("2.")
+                print("3.")
+                print("4.")
+                print("5.")
+                print("6.")
+                print("7.")
+                a = int(input("Enter opt:"))
+                if a==1:
+                    ncountry = input('enter country name:')
+                elif a==2:
+                    ndfrom = input('enter from date:')
+                elif a==3:
+                    ndto = input('enter to date:')
+                elif a==4:
+                    nnonights = int(input('enter no. of nights:'))
+                elif a==5:
+                    nnoday = int(input('enter no.of days:'))
+                elif a==6:
+                    npaprice = float(input('enter overall cost:'))
+                elif a==7:
+                    break
+            tempdata = []
+            for row in reader:
+                tempdata.append(row)
+        with open("tours.csv", 'w', newline='') as f:
+            mywriter = csv.writer(f, delimiter=',')
+            for lrow in tempdata:
+                if pack==int(lrow[0]):
+                    if ncountry:
+                        lrow[1] = ncountry
+                    #if ndfrom:
+                     #   lrow[2] = ndfrom
+                    #if ndto:
+                    #    lrow[3] = ndto
+                    #if nnonights:
+                    #    lrow[5] = nnonights
+                    #if nnoday:
+                    #    lrow[4] = nnoday
+                    #if npaprice:
+                    #    lrow[6] = npaprice
+            for lrow in tempdata:
+                mywriter.writerow(lrow)
 
 
 #calling the functions:
