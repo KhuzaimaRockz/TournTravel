@@ -3,6 +3,7 @@
 import csv
 from art import *
 from error import error_handle
+import os
 
 def tours():
     g2=" "*2
@@ -22,8 +23,8 @@ def tours():
     # exit
 
     def create():
-        c = 0
         with open('tours.csv', "r") as f:
+            c = 0
             reader = csv.reader(f)
             last_row = next(reader)
             for row in reader:
@@ -148,7 +149,6 @@ def tours():
             tempdata = []
             for row in reader:
                 tempdata.append(row)
-        f.close()
 
         with open("tours.csv", 'w', newline='') as f:
             writer = csv.writer(f, delimiter=',')
@@ -168,24 +168,71 @@ def tours():
                     row[4] = nnoday
                     row[6] = npaprice
                 writer.writerow(row)
+        with open("pacinfo.csv", 'r', newline='') as f:
+            reader = csv.reader(f)
+            tempdata = []
+            for row in reader:
+                tempdata.append(row)
+        with open("pacinfo.csv", 'w', newline='') as f:
+            writer = csv.writer(f, delimiter=',')
+            for row in tempdata:
+                L2 = []
+                print('-' * 100)
+                print(f"{'Inclusions will be offered by TravelOn Tours which are fixed for every trip!':^100s}")
+                print(f"{'8 Attractions to be entered':^100s}")
+                print('-' * 100)
+                for j in range(8):
+                    attractions = input("Enter attractions:")
+                    L2.append(attractions)
+                print('-' * 100)
+                print(f"{'4 Food recommendations to be entered':^100s}")
+                print('-' * 100)
+                for k in range(4):
+                    food = input("Enter Food recommendation:")
+                    L2.append(food)
+            f.seek(pack)
+            writer.writerow(L2)
+    def delete():
+        f = open('tours.csv', 'r', newline='')
+        reader = csv.reader(f)
+
+        usrDel = int(input('Enter Package to delete data for: '))
+
+        flag = False
+        tempRows = []
+
+        for row in reader:
+            if int(row[0]) == usrDel:
+                flag = True
+            else:
+                tempRows.append(row)
+
+        if flag:
+            f.close()
+            f = open('tours.csv', 'w', newline='')
+            writer = csv.writer(f)
+            writer.writerows(tempRows)
+            f.close()
+            print('---Deleted successfully.')
+
+        else:
+            print('Error: City not found for deletion, hence not deleted.')
+        f.close()
+        f = open('tours.csv', 'r+', newline='')
+        reader = csv.reader(f)
+        writer = csv.writer(f)
+
+        c = 1
+        L = []
+        for row in reader:
+            row[0] = c
+            c+=1
+            L.append(row)
+        f.seek(0)
+        writer.writerows(L)
         f.close()
 
-    def delete():
-        f = open("tours.csv", 'r+', newline='')
-        reader = csv.reader(f)
-        norows = 0
-        usrDel = input('Enter city to delete data for: ')
-        temp_data = []
-        c = usrDel
-        for row in reader:
-            if row[0] != usrDel:
-                for i in range(norows):
-                    if row[0] != 1 and row[0] != c:
-                        row[0] = c
-                    c += 1
-                temp_data.append(row)
-        print(temp_data)
-        f.close()
+
 
     #calling the functions:
     print('*' * 100)
@@ -210,7 +257,7 @@ def tours():
         optpac = int(input("Enter A Package For More Info: "))
         pacinfo(optpac)
     elif opt == '2':
-        #create()
+        create()
         douopt = input("Do You Want To See New Packages? (Y/N): ")
         if douopt not in ['Y','y','N','n']:
             input("Error: Invalid input (ENTER): ")
