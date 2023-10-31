@@ -603,10 +603,11 @@ def radar(usr_from, usr_dest):
     driver.implicitly_wait(10)
 
     driver.get('https://www.flightradar24.com/')
-    w = driver.get_window_size().get("width")
-    h = driver.get_window_size().get("height")
-    print(w)
-    print(h)
+    # debugging purpose to get window spec
+    # w = driver.get_window_size().get("width")
+    # h = driver.get_window_size().get("height")
+    # print(w)
+    # print(h)
     # clicking continue with cookies button
     driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
     time.sleep(2)
