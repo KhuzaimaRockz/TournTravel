@@ -182,7 +182,7 @@ def ticket():
 
         options = Options()
         options.add_experimental_option("detach", True)
-        options.add_argument("--headless=new") # headless
+        #options.add_argument("--headless=new") # headless
 
         driver = webdriver.Chrome(options=options)
 
@@ -238,6 +238,9 @@ def ticket():
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[1]/div/div/div[1]/div/div[1]/div/input")
             ActionChains(driver).click(a).perform()
+            element = driver.find_element(By.XPATH,
+                                          '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/input')
+            ActionChains(driver).move_to_element(element).perform()
             a = driver.find_element(By.XPATH,
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[2]/div[1]/div[1]/div[1]/div/input")
             time.sleep(x)
@@ -528,71 +531,76 @@ def ticket():
         time.sleep(6)
 
         # Retrieving data
-        #1st deal
-        air1=driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[2]/span')
-        dura1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[3]/div')
-        time1p1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
-        time1p2=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
-        stops1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[4]/div[1]/span')
-        price1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
+        nofound = "No options matching your search"
+        nofoundele = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/div[1]/h3')
+        if nofound not in nofoundele.text:
+            print("No Tickets Available To Your Desired Destination")
+        else:
+            #1st deal
+            air1=driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[2]/span')
+            dura1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[3]/div')
+            time1p1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+            time1p2=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+            stops1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+            price1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
 
-        #2nd deal
-        air2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[2]')
-        dura2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[3]/div')
-        time2p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
-        time2p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
-        stops2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[4]/div[1]/span')
-        price2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
+            #2nd deal
+            air2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[2]')
+            dura2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[3]/div')
+            time2p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+            time2p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+            stops2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+            price2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
 
-        #3rd deal
-        air3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[2]')
-        dura3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[3]/div')
-        time3p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
-        time3p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
-        stops3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[4]/div[1]/span')
-        price3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
-        #printing
-        print('*' * 100)
-        tprint('TravelOn Tours'.center(25))
-        print('*' * 100)
-        print()
-        g26 = " " * 26
-        print("=" * 100)
-        print('*' * 37, end='')
-        print(f"{'1st DEAL':^26s}", end='')
-        print(f"{'*' * 37:^20}")
-        print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
-        time = (time1p1.text, time1p2.text)
-        jtime = "-".join(time)
-        print(f"{jtime:^37s}{dura1.text:^26s}{stops1.text:^37s}")
-        print()
-        print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
-        print(f"{air1.text:^50}{price1.text:^50}")
-        print("-" * 100)
-        print('*' * 37, end='')
-        print(f"{'2nd DEAL':^26s}", end='')
-        print(f"{'*' * 37:^20}")
-        print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
-        time2 = (time2p1.text, time2p2.text)
-        jtime2 = "-".join(time2)
-        print(f"{jtime2:^37s}{dura2.text:^26s}{stops2.text:^37s}")
-        print()
-        print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
-        print(f"{air2.text:^50}{price2.text:^50}")
-        print("-"*100)
-        print('*' * 37, end='')
-        print(f"{'3rd DEAL':^26s}", end='')
-        print(f"{'*' * 37:^20}")
-        print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
-        time3 = (time3p1.text, time3p2.text)
-        jtime3 = "-".join(time3)
-        print(f"{jtime3:^37s}{dura3.text:^26s}{stops3.text:^37s}")
-        print()
-        print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
-        print(f"{air3.text:^50}{price3.text:^50}")
-        print("="*100)
-        radar(usr_from, usr_dest)
-        
+            #3rd deal
+            air3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[2]')
+            dura3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[3]/div')
+            time3p1 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[1]/span/span/span')
+            time3p2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[2]/div[1]/span/span[2]/span/span/span')
+            stops3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[4]/div[1]/span')
+            price3 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[3]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
+            #printing
+            print('*' * 100)
+            tprint('TravelOn Tours'.center(25))
+            print('*' * 100)
+            print()
+            g26 = " " * 26
+            print("=" * 100)
+            print('*' * 37, end='')
+            print(f"{'1st DEAL':^26s}", end='')
+            print(f"{'*' * 37:^20}")
+            print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+            time = (time1p1.text, time1p2.text)
+            jtime = "-".join(time)
+            print(f"{jtime:^37s}{dura1.text:^26s}{stops1.text:^37s}")
+            print()
+            print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+            print(f"{air1.text:^50}{price1.text:^50}")
+            print("-" * 100)
+            print('*' * 37, end='')
+            print(f"{'2nd DEAL':^26s}", end='')
+            print(f"{'*' * 37:^20}")
+            print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+            time2 = (time2p1.text, time2p2.text)
+            jtime2 = "-".join(time2)
+            print(f"{jtime2:^37s}{dura2.text:^26s}{stops2.text:^37s}")
+            print()
+            print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+            print(f"{air2.text:^50}{price2.text:^50}")
+            print("-"*100)
+            print('*' * 37, end='')
+            print(f"{'3rd DEAL':^26s}", end='')
+            print(f"{'*' * 37:^20}")
+            print(f"{'Time:':^37s}{'Flight Duration:':^26s}{'Stops:':^37s}")
+            time3 = (time3p1.text, time3p2.text)
+            jtime3 = "-".join(time3)
+            print(f"{jtime3:^37s}{dura3.text:^26s}{stops3.text:^37s}")
+            print()
+            print(f"{'Airlines:':^50}{'Ticket Price (KWD):':^50}")
+            print(f"{air3.text:^50}{price3.text:^50}")
+            print("="*100)
+            radar(usr_from, usr_dest)
+
 def radar(usr_from, usr_dest):
     #need to integrate this code to main.py
     options = Options()
