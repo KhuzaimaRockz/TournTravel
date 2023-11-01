@@ -239,12 +239,9 @@ def tours():
         f1reader = csv.reader(f1)
         flag = False
         tmpRow = []
-        print(usrDel) # debug
         delRow = []
         for i in range(usrDel):
-            delrow = next(f1reader) 
-        print(delrow)
-        input('----')
+            delrow = next(f1reader)
         f1.close() # cursor reset
         
         f1 = open('pacinfo.csv', 'r', newline='') # lazy cursor reset
@@ -254,9 +251,7 @@ def tours():
                 tmpRow.append(row)
             else:
                 flag = True
-        print(tmpRow)
         f1.close()
-        input('----2---')
         f1 = open('pacinfo.csv', 'w', newline='')
         f1writer = csv.writer(f1)
         for row in tmpRow:
