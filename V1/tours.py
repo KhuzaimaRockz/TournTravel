@@ -279,11 +279,11 @@ def tours():
         print(f"{'1. Existing Packages':^100s}")
         print(f"{'2. Create A Package':^100s}")
         #print(f"{'3. Update A Package':^100s}")
-        print(f"{'4. Delete A Package':^100s}")
-        print(f"{'5. Go Back To Main Menu':^100s}")
+        print(f"{'3. Delete A Package':^100s}")
+        print(f"{'4. Go Back To Main Menu':^100s}")
         print('=' * 100)
         opt = input("Enter Your Choice: ")
-        if opt not in ['1', '2', '4', '5']:
+        if opt not in ['1', '2', '3', '4']:
             input("Error: Invalid input (ENTER): ")
             error_handle(101)
         else:
@@ -308,7 +308,7 @@ def tours():
     #         error_handle(101)
     #     elif douopt in ['Y', 'y']:
     #         packages()
-    elif opt == '4':
+    elif opt == '3':
         delete()
         douopt = input("Do You Want To See Older Packages? (Y/N): ")
         if douopt not in ['Y', 'y', 'N', 'n']:
@@ -316,3 +316,5 @@ def tours():
             error_handle(101)
         elif douopt in ['Y', 'y']:
             packages()
+    elif opt == '4':
+        return
