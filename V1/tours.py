@@ -234,23 +234,34 @@ def tours():
         f.seek(0)
         writer.writerows(L)
         f.close()
-        f=open('pacinfo.csv', 'r', newline='')
-        reader = csv.reader(f)
+        
+        f1 = open('pacinfo.csv', 'r', newline='')
+        f1reader = csv.reader(f1)
         flag = False
-        newcsv = []
-        print(usrDel)
-        delrow = []
+        tmpRow = []
+        print(usrDel) # debug
+        delRow = []
         for i in range(usrDel):
-            delrow = next(reader)
+            delrow = next(f1reader) 
         print(delrow)
-        for row in reader:
-            print(row[0])
-            if row[0] == delrow[0]:
-                newcsv.append(row)
+        input('----')
+        f1.close() # cursor reset
+        
+        f1 = open('pacinfo.csv', 'r', newline='') # lazy cursor reset
+        f1reader = csv.reader(f1)       
+        for row in f1reader:
+            if row != delrow:
+                tmpRow.append(row)
             else:
                 flag = True
-        print(newcsv)
-        f.close()
+        print(tmpRow)
+        f1.close()
+        input('----2---')
+        f1 = open('pacinfo.csv', 'w', newline='')
+        f1writer = csv.writer(f1)
+        for row in tmpRow:
+            f1writer.writerow(row)
+        
         # if flag:
         #     f.close()
         #     f2=open('newpac.csv', 'w', newline='')
