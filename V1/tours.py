@@ -16,7 +16,6 @@ def tours():
     # food recommendations (4)
     # inclusions
     # create your own package
-    # edit a package
     # delete a package
     # exit
 
@@ -184,7 +183,6 @@ def tours():
         f1reader = csv.reader(f1)
         flag = False
         tmpRow = []
-        delRow = []
         for i in range(usrDel):
             delrow = next(f1reader)
         f1.close() # cursor reset

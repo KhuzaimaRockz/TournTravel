@@ -52,16 +52,16 @@ def ticket():
         tprint('TravelOn Tours'.center(25))
         print('*' * 100)
         print('='*100)
-        print(f"{'MAX Number Of People is 9':^100s}")
-        print(f"{'Minimum 1 Adult should be there':^100s}")
-        print(f"{'You Must Have 1 Adult for 2 Infant':^100s}")
-        print(f"{'You Can Have Up To 8 Children':^100s}")
-        print(f"{'For Each Infant on Lap There Must Be One Adult':^100s}")
+        print(f"{'Maximum number of people is 9':^100s}")
+        print(f"{'Minimum 1 adult should be there':^100s}")
+        print(f"{'You must have 1 adult for 2 infant':^100s}")
+        print(f"{'You can have up to 8 children':^100s}")
+        print(f"{'For each infant on lap there must be one adult':^100s}")
         print('='*100)
 
         while True:
             People_count = 0
-            adults = int(input('Enter number of Adult : '))  #Change int to str and impliment it properly
+            adults = int(input('Enter number of Adult : '))
             People_count += adults
             if People_count > 9:
                 input("Error: You Can't Have More than 9 people (ENTER): ")
@@ -125,43 +125,7 @@ def ticket():
             usr_dest = get_airport_data(usr_dest)
             
             date_from = input('Enter Date of First Flight (mm/dd/yyyy) :')
-            date_to = input('Enter Date of Second Flight (mm/dd/yyyy) :')
-
-        #elif trip == '4':
-            # flights = int(input('Enter Number of flights : '))  #Change int to str and impliment it properly
-            
-            # usr_from = input('Enter -From- location : ')
-            # usr_from = get_airport_data(usr_from)
-            
-            # usr_dest_1 = input('Enter -Destination- 1 : ')
-            # usr_dest_1 = get_airport_data(usr_dest_1)
-            
-            # date_from = input('Enter Date of First Flight (dd/mm/yyyy) :')
-
-            # if flights >= 2:
-            #     usr_dest_2 = input('Enter -Destination- 2 : ')
-            #     usr_dest_2 = get_airport_data(usr_dest_2)
-                
-            #     date_to_2 = input('Enter Date of Second Flight (dd/mm/yyyy) :')
-
-            # if flights >= 3:
-            #     usr_dest_3 = input('Enter -Destination- 3 : ')
-            #     usr_dest_3 = get_airport_data(usr_dest_3)
-                
-            #     date_to_3 = input('Enter Date of Third Flight (dd/mm/yyyy) :')
-
-            # if flights >= 4:
-            #     usr_dest_4 = input('Enter -Destination- 4 : ')
-            #     usr_dest_4 = get_airport_data(usr_dest_4)
-                
-            #     date_to_4 = input('Enter Date of Fourth Flight (dd/mm/yyyy) :')
-
-            # if flights >= 5:
-            #     usr_dest_5 = input('Enter -Destination- 5 : ')
-            #     usr_dest_5 = get_airport_data(usr_dest_5)
-                
-            #     date_to_5 = input('Enter Date of Final Flight (dd/mm/yyyy) :')
-
+            date_to = input('Enter Date of Return Flight (mm/dd/yyyy) :')
 
         flag_1 = True
 
@@ -192,13 +156,6 @@ def ticket():
                                     "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[1]")
             time.sleep(x)
             ActionChains(driver).click(c).perform()
-        #elif trip == '3':  # Multi City
-            # d = driver.find_element(By.XPATH,
-            #                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[1]/div[1]/div/div/div/div[2]/ul/li[3]")
-            # time.sleep(x)
-            # ActionChains(driver).click(d).perform()
-
-
         if trip == '1':  # One Way
             # From city
             a = driver.find_element(By.XPATH,
@@ -287,175 +244,6 @@ def ticket():
                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[2]/div[2]/div/div/div[2]/div/div[3]/div[3]/div/button")
             ActionChains(driver).click(a).perform()
             time.sleep(x)
-
-
-        #elif trip == '3': #Multi city
-            # Add Flight
-            # time.sleep(x)
-            # a = driver.find_element(By.XPATH,
-            #                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/button''')
-            # for i in range(flights - 2):
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            # # From City
-            # a = driver.find_element(By.XPATH,
-            #                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[1]/div/div/div[1]/div/div/input''')
-            # a.clear()
-            # a.send_keys(usr_from)
-            # time.sleep(x)
-            # a = driver.find_element(By.XPATH,
-            #                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li[1]''')
-            # ActionChains(driver).click(a).perform()
-
-            # time.sleep(x)
-
-            # # To City 1
-            # a = driver.find_element(By.XPATH,
-            #                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[4]/div/div/div[1]/div/div/input''')
-            # a.clear()
-            # a.send_keys(usr_dest_1)
-            # time.sleep(x)
-            # a = driver.find_element(By.XPATH,
-            #                         '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[1]/div[6]/div[3]/ul/li''')
-            # ActionChains(driver).click(a).perform()
-            # time.sleep(x)
-
-            # # Date 1
-            # a = driver.find_element(By.XPATH,
-            #                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/input")
-            # ActionChains(driver).click(a).perform()
-            # a = driver.find_element(By.XPATH,
-            #                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            # time.sleep(x)
-            # a.send_keys(Keys.BACKSPACE)
-            # a.send_keys(date_from)
-            # a.send_keys(Keys.ENTER)
-            # time.sleep(x)
-
-            # # Date done button 1
-            # a = driver.find_element(By.XPATH,
-            #                         "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[1]/div[2]/div/div[2]/div[2]/div[3]/button")
-            # ActionChains(driver).click(a).perform()
-            # time.sleep(x)
-
-
-            # if flights >= 2:  # To City 2
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[1]/div[4]/div/div/div[1]/div/div/input''')
-            #     a.clear()
-            #     a.send_keys(usr_dest_2)
-            #     time.sleep(x)
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[1]/div[6]/div[3]/ul/li[1]''')
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            #     # Date 2
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/input")
-            #     ActionChains(driver).click(a).perform()
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            #     time.sleep(x)
-            #     a.send_keys(Keys.BACKSPACE)
-            #     a.send_keys(date_to_2)
-            #     a.send_keys(Keys.ENTER)
-            #     time.sleep(x)
-
-            #     # Date done button 2
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[2]/div[2]/div/div[2]/div[2]/div[3]/button")
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            # if flights >= 3:  # To City 3
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[4]/div/div/div[1]/div/div/input''')
-            #     a.clear()
-            #     a.send_keys(usr_dest_3)
-            #     time.sleep(x)
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[1]/div[6]/div[3]/ul/li[1]''')
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            #     # Date 3
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/input")
-            #     ActionChains(driver).click(a).perform()
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            #     time.sleep(x)
-            #     a.send_keys(Keys.BACKSPACE)
-            #     a.send_keys(date_to_3)
-            #     a.send_keys(Keys.ENTER)
-            #     time.sleep(x)
-
-            #     # Date done button 3
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[3]/div[2]/div/div[2]/div[2]/div[3]/button")
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            # if flights >= 4:  # To City 4
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[1]/div[4]/div/div/div[1]/div/div/input''')
-            #     a.clear()
-            #     a.send_keys(usr_dest_4)
-            #     time.sleep(x)
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[1]/div[6]/div[3]/ul/li[1]''')
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            #     # Date 4
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/input")
-            #     ActionChains(driver).click(a).perform()
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            #     time.sleep(x)
-            #     a.send_keys(Keys.BACKSPACE)
-            #     a.send_keys(date_to_4)
-            #     a.send_keys(Keys.ENTER)
-            #     time.sleep(x)
-
-            #     # Date done button 4
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[4]/div[2]/div/div[2]/div[2]/div[3]/button")
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            # if flights >= 5:  # To City 5
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[1]/div[4]/div/div/div[1]/div/div/input''')
-            #     a.clear()
-            #     a.send_keys(usr_dest_5)
-            #     time.sleep(x)
-            #     a = driver.find_element(By.XPATH,
-            #                             '''/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[1]/div[6]/div[3]/ul/li[1]''')
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-
-            #     # Date 5
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[2]/div/div[1]/div/div/div[1]/div/div[1]/div/input")
-            #     ActionChains(driver).click(a).perform()
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[2]/div/div[2]/div[2]/div[2]/div/div[1]/div/div[1]/div/input")
-            #     time.sleep(x)
-            #     a.send_keys(Keys.BACKSPACE)
-            #     a.send_keys(date_to_5)
-            #     a.send_keys(Keys.ENTER)
-            #     time.sleep(x)
-
-            #     # Date done button 5
-            #     a = driver.find_element(By.XPATH,
-            #                             "/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[1]/div[1]/div[1]/div/div[3]/div/div/div[5]/div[2]/div/div[2]/div[2]/div[3]/button")
-            #     ActionChains(driver).click(a).perform()
-            #     time.sleep(x)
-                
 
         # Number of people
         if not (adults == 1 and child == 0 and infant_lap == 0 and infant_seat == 0):
@@ -613,11 +401,7 @@ def radar(usr_from, usr_dest):
 
     driver.get('https://www.flightradar24.com/')
     driver.maximize_window()
-    # debugging purpose to get window spec
-    # w = driver.get_window_size().get("width")
-    # h = driver.get_window_size().get("height")
-    # print(w)
-    # print(h)
+
     # clicking continue with cookies button
     driver.find_element(By.XPATH, '//*[@id="onetrust-accept-btn-handler"]').click()
     time.sleep(2)
@@ -661,4 +445,3 @@ def radar(usr_from, usr_dest):
         time.sleep(1)
         driver.find_element(By.XPATH, '/html/body/div[1]/div/div/div[1]/div/div/div/div[2]/div[2]/div[2]/div[2]/div/div/div/div[1]/div/div[2]/div[2]/div[1]/div/div/div/div[2]/a[1]/span').click()
     time.sleep(100)
-
