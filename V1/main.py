@@ -20,8 +20,5 @@ while True:
     elif usrChoice == 2:
         tours()
         continue
-    elif usrChoice == 420:
-        print("shush.")
     else:
         break
-    #

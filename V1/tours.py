@@ -1,13 +1,11 @@
-# we use csv or binary file and we will have existing tour offers by travelon
-# and then we can display the option for show, update, delete, ex
+# we use csv file and we will have existing tour offers by travelon
+# and then we can display the option for show, create, delete, exit
 import csv
 from art import *
 from error import error_handle
 import os
 
 def tours():
-    g2=" "*2
-    g3=" "*3
     # display 3 country packages (Georgia, Azerbaijan, Turkiye): (things to display for options)
     # country
     # per person price
@@ -24,7 +22,6 @@ def tours():
 
     def create():
         with open('tours.csv', "r") as f:
-            c = 0
             reader = csv.reader(f)
             last_row = next(reader)
             for row in reader:
@@ -141,59 +138,7 @@ def tours():
                 print('*' * 100)
                 print()
                 print("The row does not exist.")
-    # def update():
-    #     packages()
-    #     pack = int(input("Enter the package you want to modify: "))
-    #     with open("tours.csv", 'r', newline='') as f:
-    #         reader = csv.reader(f)
-    #         tempdata = []
-    #         for row in reader:
-    #             tempdata.append(row)
-    #
-    #     with open("tours.csv", 'w', newline='') as f:
-    #         writer = csv.writer(f, delimiter=',')
-    #         for row in tempdata:
-    #             if pack == int(row[0]):
-    #                 ncountry = input('Enter country name: ')
-    #                 ndfrom = input('Enter from date: ')
-    #                 ndto = input('Enter to date: ')
-    #                 nnonights = int(input('Enter no. of nights: '))
-    #                 nnoday = int(input('Enter no. of days: '))
-    #                 npaprice = float(input('Enter overall cost: '))
-    #
-    #                 row[1] = ncountry
-    #                 row[2] = ndfrom
-    #                 row[3] = ndto
-    #                 row[5] = nnonights
-    #                 row[4] = nnoday
-    #                 row[6] = npaprice
-    #             writer.writerow(row)
-    #     with open("pacinfo.csv", 'r', newline='') as f:
-    #         reader = csv.reader(f)
-    #         tempdata = []
-    #         for row in reader:
-    #             tempdata.append(row)
-    #     with open("pacinfo.csv", 'w', newline='') as f:
-    #         writer = csv.writer(f, delimiter=',')
-    #         print(pack)
-    #         for row in tempdata:
-    #             if pack == f.seek(pack):
-    #                 L2 = []
-    #                 print('-' * 100)
-    #                 print(f"{'Inclusions will be offered by TravelOn Tours which are fixed for every trip!':^100s}")
-    #                 print(f"{'8 Attractions to be entered':^100s}")
-    #                 print('-' * 100)
-    #                 for j in range(8):
-    #                     attractions = input("Enter attractions:")
-    #                     L2.append(attractions)
-    #                 print('-' * 100)
-    #                 print(f"{'4 Food recommendations to be entered':^100s}")
-    #                 print('-' * 100)
-    #                 for k in range(4):
-    #                     food = input("Enter Food recommendation:")
-    #                     L2.append(food)
-    #                 writer.writerow(L2)
-    #                 break
+
     def delete():
         global delrow
         f = open('tours.csv', 'r', newline='')
@@ -244,7 +189,7 @@ def tours():
             delrow = next(f1reader)
         f1.close() # cursor reset
         
-        f1 = open('pacinfo.csv', 'r', newline='') # lazy cursor reset
+        f1 = open('pacinfo.csv', 'r', newline='') #cursor reset
         f1reader = csv.reader(f1)       
         for row in f1reader:
             if row != delrow:
@@ -256,19 +201,6 @@ def tours():
         f1writer = csv.writer(f1)
         for row in tmpRow:
             f1writer.writerow(row)
-        
-        # if flag:
-        #     f.close()
-        #     f2=open('newpac.csv', 'w', newline='')
-        #     writer = csv.writer(f2)
-        #     writer.writerows(newcsv)
-        #     f2.close()
-        #     os.remove("pacinfo.csv")
-        #     os.rename("newpac.csv", "pacinfo.csv")
-        #     print('---Deleted Package info from Pacinfo successfully.')
-
-
-
 
     #calling the functions:
     print('*' * 100)
@@ -278,7 +210,6 @@ def tours():
         print('=' * 100)
         print(f"{'1. Existing Packages':^100s}")
         print(f"{'2. Create A Package':^100s}")
-        #print(f"{'3. Update A Package':^100s}")
         print(f"{'3. Delete A Package':^100s}")
         print(f"{'4. Go Back To Main Menu':^100s}")
         print('=' * 100)
@@ -300,14 +231,6 @@ def tours():
             error_handle(101)
         elif douopt in ['Y', 'y']:
             packages()
-    # elif opt == '3':
-    #     update()
-    #     douopt = input("Do You Want To See Updated Packages? (Y/N): ")
-    #     if douopt not in ['Y', 'y', 'N', 'n']:
-    #         input("Error: Invalid input (ENTER): ")
-    #         error_handle(101)
-    #     elif douopt in ['Y', 'y']:
-    #         packages()
     elif opt == '3':
         delete()
         douopt = input("Do You Want To See Older Packages? (Y/N): ")
