@@ -519,31 +519,31 @@ def ticket():
         time.sleep(6)
 
         # Retrieving data
-
-        element = driver.find_element(By.XPATH,'//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/div[1]/h3')
-        element2 = driver.find_element(By.XPATH,'//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/div/div/div/div')
-        search = "LIVE FLIGHTS"
-        if search not in element.text:
-            print("No Live Flights")
-        search = "LIVE FLIGHTS"
-        if search not in element.text:
-            print("No Live Flights")
-        search = "No Business Class flights found"
-        search2 = "No First Class flights found"
-        search3 = "No options matching your search"
-        search4 = "No First Class flights found"
-        search5 = "Prices are currently typical"
-        if search not in element.text:
-            print("No Business Class flights found")
-        elif search2 not in element.text:
-            print("No First Class flights found")
-        elif search3 not in element.text:
-            print("No options matching your search")
-        elif search4 not in element.text:
-            print('No First Class flights found')
-        elif search5 not in element2.text:
-            print("No flights available")
-        else:
+        try:
+            element = driver.find_element(By.XPATH,'//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/div[1]/h3')
+            element2 = driver.find_element(By.XPATH,'//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/div/div/div/div')
+            search = "LIVE FLIGHTS"
+            if search not in element.text:
+                print("No Live Flights")
+            search = "LIVE FLIGHTS"
+            if search not in element.text:
+                print("No Live Flights")
+            search = "No Business Class flights found"
+            search2 = "No First Class flights found"
+            search3 = "No options matching your search"
+            search4 = "No First Class flights found"
+            search5 = "Prices are currently typical"
+            if search not in element.text:
+                print("No Business Class flights found")
+            elif search2 not in element.text:
+                print("No First Class flights found")
+            elif search3 not in element.text:
+                print("No options matching your search")
+            elif search4 not in element.text:
+                print('No First Class flights found')
+            elif search5 not in element2.text:
+                print("No flights available")
+        except:
             #1st deal
             air1=driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[2]/div[2]/span')
             dura1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[3]/div')
@@ -552,6 +552,8 @@ def ticket():
             stops1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[4]/div[1]/span')
             price1=driver.find_element(By.XPATH, '/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[1]/div/div[2]/div/div[2]/div[6]/div[1]/div[2]/span')
 
+            elementc = driver.find_element(By.XPATH,'//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div')
+            searchc = driver.find_element(By.XPATH, '//*[@id="yDmH0d"]/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[4]/div')
             #2nd deal
             air2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[2]/div[2]')
             dura2 = driver.find_element(By.XPATH,'/html/body/c-wiz[2]/div/div[2]/c-wiz/div[1]/c-wiz/div[2]/div[2]/div[3]/ul/li[2]/div/div[2]/div/div[2]/div[3]/div')
