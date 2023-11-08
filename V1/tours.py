@@ -139,11 +139,12 @@ def tours():
                 print("The row does not exist.")
 
     def delete():
+        packages()
         global delrow
         f = open('tours.csv', 'r', newline='')
         reader = csv.reader(f)
 
-        usrDel = int(input('Enter Package to delete data for: '))
+        usrDel = int(input('Enter Package to delete: '))
 
         flag = False
         tempRows = []

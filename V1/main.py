@@ -21,4 +21,7 @@ while True:
         tours()
         continue
     else:
+        print('*' * 100)
+        print("Thank You, Fly With Us Again!".center(100))
+        print('*' * 100)
         break

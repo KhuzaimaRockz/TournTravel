@@ -28,6 +28,36 @@ def ticket():
                 input("Error: Invalid input (ENTER): ")
                 error_handle(101)
             else:
+                return
+        while True:
+
+            if trip == '1':  # One Way
+                print('*' * 100)
+                tprint('TravelOn Tours'.center(25))
+                print('*' * 100)
+                print('-' * 100)
+                usr_from = input('Enter -From- location : ')
+                usr_from = get_airport_data(usr_from)
+
+                usr_dest = input('Enter -Destination- : ')
+                usr_dest = get_airport_data(usr_dest)
+
+                date_from = input('Enter Date of flight (mm/dd/yyyy) :')
+
+            elif trip == '2':  # Round Trip
+                print('*' * 100)
+                tprint('TravelOn Tours'.center(25))
+                print('*' * 100)
+                print('-' * 100)
+                usr_from = input('Enter -From- location : ')
+                usr_from = get_airport_data(usr_from)
+
+                usr_dest = input('Enter -Destination- : ')
+                usr_dest = get_airport_data(usr_dest)
+
+                date_from = input('Enter Date of First Flight (mm/dd/yyyy) :')
+                date_to = input('Enter Date of Return Flight (mm/dd/yyyy) :')
+            elif trip == 3:
                 break
 
         print('-'*100)
@@ -99,33 +129,6 @@ def ticket():
                 continue
             else:
                 break
-
-        if trip == '1':  # One Way
-            print('*' * 100)
-            tprint('TravelOn Tours'.center(25))
-            print('*' * 100)
-            print('-'*100)
-            usr_from = input('Enter -From- location : ')
-            usr_from = get_airport_data(usr_from)
-                        
-            usr_dest = input('Enter -Destination- : ')
-            usr_dest = get_airport_data(usr_dest)
-            
-            date_from = input('Enter Date of flight (mm/dd/yyyy) :')
-
-        elif trip == '2':  # Round Trip
-            print('*' * 100)
-            tprint('TravelOn Tours'.center(25))
-            print('*' * 100)
-            print('-' * 100)
-            usr_from = input('Enter -From- location : ')
-            usr_from = get_airport_data(usr_from)
-            
-            usr_dest = input('Enter -Destination- : ')
-            usr_dest = get_airport_data(usr_dest)
-            
-            date_from = input('Enter Date of First Flight (mm/dd/yyyy) :')
-            date_to = input('Enter Date of Return Flight (mm/dd/yyyy) :')
 
         flag_1 = True
 
